@@ -7,7 +7,7 @@ public class App {
         String plainText;
         int shiftKey;
 
-        System.out.println("Please enter messsage to be encrypted: ");
+        System.out.println("Please enter message to be encrypted: ");
         plainText = aSCANNER.nextLine();
 
         System.out.println("Please enter Shift Key; ");
@@ -20,7 +20,7 @@ public class App {
     }
 
     public static String EncryptText(String message, int shiftKey){
-        final String ALPHABETS = "abcdefghijklmopqrstuvwxyz";
+        final String ALPHABETS = "abcdefghijklmnopqrstuvwxyz";
         message = message.toLowerCase();
 
         StringBuilder cypherText = new StringBuilder();
@@ -33,29 +33,30 @@ public class App {
                 int charPosition = ALPHABETS.indexOf(message.charAt(counter));
                 int keyValue = (charPosition + shiftKey) % 26;
 
-                char cyperValue = ALPHABETS.charAt(keyValue);
+                char cypherValue = ALPHABETS.charAt(keyValue);
 
-                cypherText.append(cyperValue);
+                cypherText.append(cypherValue);
             }
         }
         return cypherText.toString();
     }
 
     public static String DecryptText(String message, int shiftKey){
-        final String ALPHABETS = "abcdefghijklmopqrstuvwxyz";
+        final String ALPHABETS = "abcdefghijklmnopqrstuvwxyz";
         message = message.toLowerCase();
 
         StringBuilder plainText = new StringBuilder();
 
         for (int counter = 0;counter < message.length();counter++){
-            if (!Character.isLetter(message.charAt(counter))){
+            if (!Character.isLetter(message.charAt(counter))) {
                 plainText.append(message.charAt(counter));
             }
             else {
                 int charPosition = ALPHABETS.indexOf(message.charAt(counter));
                 int keyValue = (charPosition - shiftKey) % 26;
 
-                if (keyValue < 0){
+                if (keyValue < 0) {
+
                     keyValue = ALPHABETS.length() + keyValue;
                 }
 
