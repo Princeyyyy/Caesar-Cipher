@@ -10,7 +10,7 @@ public class App {
         System.out.println("Please enter message to be encrypted: ");
         plainText = aSCANNER.nextLine();
 
-        System.out.println("Please enter Shift Key; ");
+        System.out.println("Please enter Shift Key: ");
         shiftKey = aSCANNER.nextInt();
         String encryptedText = EncryptText(plainText,shiftKey);
 
