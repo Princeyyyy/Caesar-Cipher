@@ -13,10 +13,11 @@ public class App {
         System.out.println("Please enter Shift Key: ");
         shiftKey = aSCANNER.nextInt();
         String encryptedText = EncryptText(plainText, shiftKey);
+        String decryptedText = DecryptText(encryptedText, shiftKey);
 
 
         System.out.println("The Encrypted Text: " + encryptedText);
-        System.out.println("The Decrypted Text: " + DecryptText(encryptedText, shiftKey));
+        System.out.println("The Decrypted Text: " + decryptedText);
     }
 
     public static String EncryptText(String message, int shiftKey) {
